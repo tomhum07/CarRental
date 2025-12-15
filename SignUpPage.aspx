@@ -5,7 +5,8 @@
 <head runat="server">
     <title>SignUp</title>
     <link href="~/Content/SignUpPageStyle.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>  
+    <%-- Thêm Font Awesome để sử dụng icon mắt --%>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -20,11 +21,13 @@
                 <div class="input-box">
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Placeholder="Password"></asp:TextBox>
                     <i class="fa-solid fa-eye toggle-icon" onclick="toggleAnyPassword('<%= txtPassword.ClientID %>', this)"></i> 
+                    <%-- mã định danh để gọi hình "con mắt" --%>
                 </div>
 
                 <div class="input-box">
                     <asp:TextBox ID="txtPasswordRe" runat="server" TextMode="Password" Placeholder="Re-enter password"></asp:TextBox>
                     <i class="fa-solid fa-eye toggle-icon" onclick="toggleAnyPassword('<%= txtPasswordRe.ClientID %>', this)"></i> 
+                    <%-- mã định danh để gọi hình "con mắt" --%>
                 </div>
 
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>

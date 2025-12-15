@@ -29,10 +29,21 @@ namespace CarRental
             string password = MD5(txtPassword.Text);
 
             Data_CarRentalDataContext context = new Data_CarRentalDataContext();
+
+            // Giữ nguyên dòng lệnh tìm kiếm cũ của bạn
             var account = context.Accounts.FirstOrDefault(a => a.Username == username && a.Password == password);
 
             if (account != null)
             {
+                // --- BẮT ĐẦU ĐOẠN VIẾT THÊM ---
+                // Kiểm tra xem tài khoản có bị khóa không (Giả sử 0/False là khóa)
+                if (account.AccountStatus == false)
+                {
+                    lblMessage.Text = "Tài khoản đang bị khóa. Vui lòng liên hệ Admin.";
+                    return; // Dừng lại, không cho chạy xuống đoạn chuyển trang
+                }
+                // --- KẾT THÚC ĐOẠN VIẾT THÊM ---
+
                 if (account.Permission == 1)
                 {
                     Response.Redirect("AdminDashboard.aspx");
