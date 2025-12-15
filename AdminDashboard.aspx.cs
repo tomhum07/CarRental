@@ -26,22 +26,42 @@ namespace CarRental
         // Hàm load dữ liệu lên GridView
         void LoadData()
         {
-            var list = from a in db.Accounts select a;
-            gvAccounts.DataSource = list;
-            gvAccounts.DataBind();
+            int getValueDrop = int.Parse(ddlSapXep.SelectedValue);
+            if (getValueDrop == 1)
+            {
+                var list = from a in db.Accounts orderby a.Username ascending select a;
+                gvAccounts.DataSource = list;
+                gvAccounts.DataBind();
+            }
+            else if (getValueDrop == 2)
+            {
+                var list = from a in db.Accounts orderby a.Username descending select a;
+                gvAccounts.DataSource = list;
+                gvAccounts.DataBind();
+            }
+            else
+            {
+                var list = from a in db.Accounts select a;
+                gvAccounts.DataSource = list;
+                gvAccounts.DataBind();
+            }
         }
 
         // Hàm mã hóa MD5
         public string MD5(string str)
         {
-            if (string.IsNullOrEmpty(str)) return "";
-            Byte[] inputBytes = Encoding.UTF8.GetBytes(str);
+            //if (string.IsNullOrEmpty(str)) return "";
+            //Byte[] inputBytes = Encoding.UTF8.GetBytes(str);
+            //MD5 md5 = new MD5CryptoServiceProvider();
+            //Byte[] hashBytes = md5.ComputeHash(inputBytes);
+            //StringBuilder sb = new StringBuilder();
+            //for (int i = 0; i < hashBytes.Length; i++)
+            //    sb.Append(hashBytes[i].ToString("x2"));
+            //return sb.ToString();
+            Byte[] pass = Encoding.UTF8.GetBytes(str);
             MD5 md5 = new MD5CryptoServiceProvider();
-            Byte[] hashBytes = md5.ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < hashBytes.Length; i++)
-                sb.Append(hashBytes[i].ToString("x2"));
-            return sb.ToString();
+            string strPassword = Encoding.UTF8.GetString(md5.ComputeHash(pass));
+            return strPassword;
         }
 
         // --- SỬA LỖI 1: Thêm hàm này để bên giao diện (.aspx) gọi được ---
@@ -137,29 +157,6 @@ namespace CarRental
                 lblMessage.Text = "Lỗi cập nhật: " + ex.Message;
             }
         }
-
-        // Xóa
-        //protected void gvAccounts_RowDeleting(object sender, GridViewDeleteEventArgs e)
-        //{
-        //    try
-        //    {
-        //        string username = gvAccounts.DataKeys[e.RowIndex].Value.ToString();
-        //        var acc = db.Accounts.SingleOrDefault(x => x.Username == username);
-
-        //        if (acc != null)
-        //        {
-        //            db.Accounts.DeleteOnSubmit(acc);
-        //            db.SubmitChanges();
-        //            lblMessage.Text = "Đã xóa user " + username;
-        //        }
-        //        LoadData();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblMessage.Text = "Không thể xóa: " + ex.Message;
-        //    }
-        //}
-
         // Khóa / Mở khóa
         protected void gvAccounts_RowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -247,6 +244,11 @@ namespace CarRental
             {
                 lblMessage.Text = "Lỗi khi xóa: " + ex.Message;
             }
+        }
+
+        protected void ddlSapXep_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData(); 
         }
     }
 }

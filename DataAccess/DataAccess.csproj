@@ -61,9 +61,6 @@
       <LastGenOutput>Data_CarRental.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Data_CarRental.dbml.layout">
-      <DependentUpon>Data_CarRental.dbml</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -71,6 +68,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data_CarRental.dbml.layout">
+      <DependentUpon>Data_CarRental.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
