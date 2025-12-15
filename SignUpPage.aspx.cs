@@ -27,12 +27,12 @@ namespace CarRental
         {
             if (txtUsername.Text == "")
             {
-                lblMessage.Text = "Nhập username!";
+                lblMessage.Text = "Username is required!";
                 txtUsername.Focus();
             }
             else if (txtPassword.Text == "")
             {
-                lblMessage.Text = "Nhập password!";
+                lblMessage.Text = "Password is required!";
                 txtPassword.Focus();
             }
             else
@@ -46,7 +46,7 @@ namespace CarRental
                 {
                     if (password != rePassword)
                     {
-                        lblMessage.Text = "Mật khẩu nhập lại không trùng khớp!";
+                        lblMessage.Text = "Passwords do not match!";
                         txtPassword.Text = "";
                         txtPasswordRe.Text = "";
                         txtPassword.Focus();
@@ -63,7 +63,7 @@ namespace CarRental
                         };
                         context.Accounts.InsertOnSubmit(newAccount);
                         context.SubmitChanges();
-                        lblMessage.Text = "Đăng ký thành công!";
+                        lblMessage.Text = "Account created successfully!";
                     }
                     catch (Exception ex)
                     {
@@ -72,7 +72,7 @@ namespace CarRental
                 }
                 else
                 {
-                    lblMessage.Text = "Tài khoản đã tồn tại!";
+                    lblMessage.Text = "Account already exists!";
                     return;
                 }
             }

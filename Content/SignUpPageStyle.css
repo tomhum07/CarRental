@@ -75,3 +75,26 @@ body {
 #lblMessage {
     color: #ff0000;
 }
+
+/* Đảm bảo ô input có đủ chỗ trống bên phải để chứa icon */
+.input-box input {
+    /* Các thuộc tính cũ giữ nguyên */
+    padding-right: 45px; /* Tăng padding bên phải lên để không bị icon che chữ */
+}
+
+/* Style cho icon (dùng chung cho cả Login và SignUp) */
+.toggle-icon {
+    position: absolute;
+    right: 15px; /* Cách lề phải 15px */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%); /* Căn giữa chính xác */
+    cursor: pointer; /* Hiện bàn tay khi di chuột */
+    color: #888; /* Màu xám nhạt */
+    font-size: 16px;
+    z-index: 10; /* Nổi lên trên input */
+}
+
+    /* Hiệu ứng hover */
+    .toggle-icon:hover {
+        color: #7494ec; /* Đổi màu xanh khi di chuột vào */
+    }

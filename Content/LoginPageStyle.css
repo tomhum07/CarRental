@@ -75,3 +75,19 @@ body {
 #lblMessage {
     color: #ff0000;
 }
+/* Style cho icon con mắt */
+.toggle-icon {
+    position: absolute;
+    right: 15px; /* Căn lề phải, nằm gọn trong vùng padding 50px của input */
+    top: 50%; /* Đưa xuống giữa theo chiều dọc */
+    transform: translateY(-50%); /* Căn giữa chính xác */
+    cursor: pointer; /* Hiện bàn tay khi di chuột vào */
+    color: #555; /* Màu xám cho icon */
+    font-size: 18px; /* Kích thước icon */
+    z-index: 10; /* Đảm bảo icon nổi lên trên input */
+}
+
+    /* Hiệu ứng khi di chuột vào icon */
+    .toggle-icon:hover {
+        color: #7494ec; /* Đổi màu xanh giống nút Login */
+    }
