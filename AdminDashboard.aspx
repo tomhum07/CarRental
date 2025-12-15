@@ -34,6 +34,8 @@
         .status-locked { color: red; font-weight: bold; }
         .btn-lock { padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; cursor: pointer; background: #fff; }
         .btn-lock:hover { background: #eee; }
+
+        .filter {}
     </style>
 </head>
 <body>
@@ -52,6 +54,14 @@
                     <asp:ListItem Value="3" Selected="True">Customer</asp:ListItem>
                 </asp:DropDownList>
                 <asp:Button ID="btnAdd" runat="server" Text="Thêm User" CssClass="btn-add" OnClick="btnAdd_Click" />
+            </div>
+
+            <div class="filter">
+                Sắp xếp: <asp:DropDownList ID="ddlSapXep" runat="server" Width="100px" AutoPostBack="True" OnSelectedIndexChanged="ddlSapXep_SelectedIndexChanged">
+                    <asp:ListItem Value="0">--</asp:ListItem>
+                    <asp:ListItem Value="1">A-Z</asp:ListItem>
+                    <asp:ListItem Value="2">Z-A</asp:ListItem>
+                </asp:DropDownList>
             </div>
 
             <asp:GridView ID="gvAccounts" runat="server" AutoGenerateColumns="False" 
