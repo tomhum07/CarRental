@@ -18,7 +18,7 @@ namespace CarRental
         public void ShowPage()
         {
             Data_CarRentalDataContext db = new Data_CarRentalDataContext();
-            var vehicle = from p in db.Vehicles.Where(v => v.VehicleStatus == false)
+            var vehicle = from p in db.Vehicles.Where(v => v.VehicleStatus == false).OrderBy(v => v.NameVehicle)
                            select p;
             DataList1.DataSource = vehicle; 
             DataList1.DataBind();
