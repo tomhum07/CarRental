@@ -71,6 +71,15 @@
     <Content Include="AdminDashboard.aspx" />
     <Content Include="Content\LoginPageStyle.css" />
     <Content Include="Content\SignUpPageStyle.css" />
+    <Content Include="CustomerDashboard.aspx" />
+    <Content Include="Image\Vehicle\FordRanger.jpg" />
+    <Content Include="Image\Vehicle\HondaCity.jpg" />
+    <Content Include="Image\Vehicle\MitsubishiXpander.jpg" />
+    <Content Include="Image\Vehicle\ToyotaFortuner.jpg" />
+    <Content Include="Image\Vehicle\ToyotaInnova.jpg" />
+    <Content Include="Image\Vehicle\ToyotaVeloz.jpg" />
+    <Content Include="Image\Vehicle\ToyotaVios.jpg" />
+    <Content Include="Image\Vehicle\VinFastVF5.jpg" />
     <Content Include="LoginPage.aspx" />
     <Content Include="SignUpPage.aspx" />
     <Content Include="StaffDashboard.aspx" />
@@ -83,6 +92,13 @@
     </Compile>
     <Compile Include="AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDashboard.aspx.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDashboard.aspx.designer.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
@@ -122,6 +138,7 @@
       <Name>DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

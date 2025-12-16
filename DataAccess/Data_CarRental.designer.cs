@@ -33,9 +33,6 @@ namespace DataAccess
     partial void InsertAccount(Account instance);
     partial void UpdateAccount(Account instance);
     partial void DeleteAccount(Account instance);
-    partial void InsertVehicle(Vehicle instance);
-    partial void UpdateVehicle(Vehicle instance);
-    partial void DeleteVehicle(Vehicle instance);
     partial void InsertCustomer(Customer instance);
     partial void UpdateCustomer(Customer instance);
     partial void DeleteCustomer(Customer instance);
@@ -45,6 +42,9 @@ namespace DataAccess
     partial void InsertStaff(Staff instance);
     partial void UpdateStaff(Staff instance);
     partial void DeleteStaff(Staff instance);
+    partial void InsertVehicle(Vehicle instance);
+    partial void UpdateVehicle(Vehicle instance);
+    partial void DeleteVehicle(Vehicle instance);
     #endregion
 		
 		public Data_CarRentalDataContext() : 
@@ -85,14 +85,6 @@ namespace DataAccess
 			}
 		}
 		
-		public System.Data.Linq.Table<Vehicle> Vehicles
-		{
-			get
-			{
-				return this.GetTable<Vehicle>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Customer> Customers
 		{
 			get
@@ -114,6 +106,14 @@ namespace DataAccess
 			get
 			{
 				return this.GetTable<Staff>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Vehicle> Vehicles
+		{
+			get
+			{
+				return this.GetTable<Vehicle>();
 			}
 		}
 	}
@@ -305,264 +305,6 @@ namespace DataAccess
 		{
 			this.SendPropertyChanging();
 			entity.Account = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vehicle")]
-	public partial class Vehicle : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _VehicleID;
-		
-		private string _LicensePlate;
-		
-		private string _NameVehicle;
-		
-		private System.Nullable<int> _SeatingCapacity;
-		
-		private string _VehicleType;
-		
-		private string _FuelType;
-		
-		private System.Nullable<int> _Price;
-		
-		private System.Nullable<bool> _VehicleStatus;
-		
-		private EntitySet<Order> _Orders;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnVehicleIDChanging(int value);
-    partial void OnVehicleIDChanged();
-    partial void OnLicensePlateChanging(string value);
-    partial void OnLicensePlateChanged();
-    partial void OnNameVehicleChanging(string value);
-    partial void OnNameVehicleChanged();
-    partial void OnSeatingCapacityChanging(System.Nullable<int> value);
-    partial void OnSeatingCapacityChanged();
-    partial void OnVehicleTypeChanging(string value);
-    partial void OnVehicleTypeChanged();
-    partial void OnFuelTypeChanging(string value);
-    partial void OnFuelTypeChanged();
-    partial void OnPriceChanging(System.Nullable<int> value);
-    partial void OnPriceChanged();
-    partial void OnVehicleStatusChanging(System.Nullable<bool> value);
-    partial void OnVehicleStatusChanged();
-    #endregion
-		
-		public Vehicle()
-		{
-			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int VehicleID
-		{
-			get
-			{
-				return this._VehicleID;
-			}
-			set
-			{
-				if ((this._VehicleID != value))
-				{
-					this.OnVehicleIDChanging(value);
-					this.SendPropertyChanging();
-					this._VehicleID = value;
-					this.SendPropertyChanged("VehicleID");
-					this.OnVehicleIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicensePlate", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string LicensePlate
-		{
-			get
-			{
-				return this._LicensePlate;
-			}
-			set
-			{
-				if ((this._LicensePlate != value))
-				{
-					this.OnLicensePlateChanging(value);
-					this.SendPropertyChanging();
-					this._LicensePlate = value;
-					this.SendPropertyChanged("LicensePlate");
-					this.OnLicensePlateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameVehicle", DbType="VarChar(50)")]
-		public string NameVehicle
-		{
-			get
-			{
-				return this._NameVehicle;
-			}
-			set
-			{
-				if ((this._NameVehicle != value))
-				{
-					this.OnNameVehicleChanging(value);
-					this.SendPropertyChanging();
-					this._NameVehicle = value;
-					this.SendPropertyChanged("NameVehicle");
-					this.OnNameVehicleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeatingCapacity", DbType="Int")]
-		public System.Nullable<int> SeatingCapacity
-		{
-			get
-			{
-				return this._SeatingCapacity;
-			}
-			set
-			{
-				if ((this._SeatingCapacity != value))
-				{
-					this.OnSeatingCapacityChanging(value);
-					this.SendPropertyChanging();
-					this._SeatingCapacity = value;
-					this.SendPropertyChanged("SeatingCapacity");
-					this.OnSeatingCapacityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleType", DbType="NVarChar(20)")]
-		public string VehicleType
-		{
-			get
-			{
-				return this._VehicleType;
-			}
-			set
-			{
-				if ((this._VehicleType != value))
-				{
-					this.OnVehicleTypeChanging(value);
-					this.SendPropertyChanging();
-					this._VehicleType = value;
-					this.SendPropertyChanged("VehicleType");
-					this.OnVehicleTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FuelType", DbType="NVarChar(20)")]
-		public string FuelType
-		{
-			get
-			{
-				return this._FuelType;
-			}
-			set
-			{
-				if ((this._FuelType != value))
-				{
-					this.OnFuelTypeChanging(value);
-					this.SendPropertyChanging();
-					this._FuelType = value;
-					this.SendPropertyChanged("FuelType");
-					this.OnFuelTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
-		public System.Nullable<int> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleStatus", DbType="Bit")]
-		public System.Nullable<bool> VehicleStatus
-		{
-			get
-			{
-				return this._VehicleStatus;
-			}
-			set
-			{
-				if ((this._VehicleStatus != value))
-				{
-					this.OnVehicleStatusChanging(value);
-					this.SendPropertyChanging();
-					this._VehicleStatus = value;
-					this.SendPropertyChanged("VehicleStatus");
-					this.OnVehicleStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Order", Storage="_Orders", ThisKey="VehicleID", OtherKey="VehicleID")]
-		public EntitySet<Order> Orders
-		{
-			get
-			{
-				return this._Orders;
-			}
-			set
-			{
-				this._Orders.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vehicle = this;
-		}
-		
-		private void detach_Orders(Order entity)
-		{
-			this.SendPropertyChanging();
-			entity.Vehicle = null;
 		}
 	}
 	
@@ -889,9 +631,9 @@ namespace DataAccess
 		
 		private EntityRef<Customer> _Customer;
 		
-		private EntityRef<Vehicle> _Vehicle;
-		
 		private EntityRef<Staff> _Staff;
+		
+		private EntityRef<Vehicle> _Vehicle;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -918,8 +660,8 @@ namespace DataAccess
 		public Order()
 		{
 			this._Customer = default(EntityRef<Customer>);
-			this._Vehicle = default(EntityRef<Vehicle>);
 			this._Staff = default(EntityRef<Staff>);
+			this._Vehicle = default(EntityRef<Vehicle>);
 			OnCreated();
 		}
 		
@@ -1129,40 +871,6 @@ namespace DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Order", Storage="_Vehicle", ThisKey="VehicleID", OtherKey="VehicleID", IsForeignKey=true)]
-		public Vehicle Vehicle
-		{
-			get
-			{
-				return this._Vehicle.Entity;
-			}
-			set
-			{
-				Vehicle previousValue = this._Vehicle.Entity;
-				if (((previousValue != value) 
-							|| (this._Vehicle.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Vehicle.Entity = null;
-						previousValue.Orders.Remove(this);
-					}
-					this._Vehicle.Entity = value;
-					if ((value != null))
-					{
-						value.Orders.Add(this);
-						this._VehicleID = value.VehicleID;
-					}
-					else
-					{
-						this._VehicleID = default(int);
-					}
-					this.SendPropertyChanged("Vehicle");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Order", Storage="_Staff", ThisKey="StaffID", OtherKey="StaffID", IsForeignKey=true)]
 		public Staff Staff
 		{
@@ -1193,6 +901,40 @@ namespace DataAccess
 						this._StaffID = default(int);
 					}
 					this.SendPropertyChanged("Staff");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Order", Storage="_Vehicle", ThisKey="VehicleID", OtherKey="VehicleID", IsForeignKey=true)]
+		public Vehicle Vehicle
+		{
+			get
+			{
+				return this._Vehicle.Entity;
+			}
+			set
+			{
+				Vehicle previousValue = this._Vehicle.Entity;
+				if (((previousValue != value) 
+							|| (this._Vehicle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Vehicle.Entity = null;
+						previousValue.Orders.Remove(this);
+					}
+					this._Vehicle.Entity = value;
+					if ((value != null))
+					{
+						value.Orders.Add(this);
+						this._VehicleID = value.VehicleID;
+					}
+					else
+					{
+						this._VehicleID = default(int);
+					}
+					this.SendPropertyChanged("Vehicle");
 				}
 			}
 		}
@@ -1418,6 +1160,264 @@ namespace DataAccess
 		{
 			this.SendPropertyChanging();
 			entity.Staff = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vehicle")]
+	public partial class Vehicle : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _VehicleID;
+		
+		private string _LicensePlate;
+		
+		private string _NameVehicle;
+		
+		private System.Nullable<int> _SeatingCapacity;
+		
+		private string _FuelType;
+		
+		private System.Nullable<int> _Price;
+		
+		private System.Nullable<bool> _VehicleStatus;
+		
+		private string _Image;
+		
+		private EntitySet<Order> _Orders;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnVehicleIDChanging(int value);
+    partial void OnVehicleIDChanged();
+    partial void OnLicensePlateChanging(string value);
+    partial void OnLicensePlateChanged();
+    partial void OnNameVehicleChanging(string value);
+    partial void OnNameVehicleChanged();
+    partial void OnSeatingCapacityChanging(System.Nullable<int> value);
+    partial void OnSeatingCapacityChanged();
+    partial void OnFuelTypeChanging(string value);
+    partial void OnFuelTypeChanged();
+    partial void OnPriceChanging(System.Nullable<int> value);
+    partial void OnPriceChanged();
+    partial void OnVehicleStatusChanging(System.Nullable<bool> value);
+    partial void OnVehicleStatusChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public Vehicle()
+		{
+			this._Orders = new EntitySet<Order>(new Action<Order>(this.attach_Orders), new Action<Order>(this.detach_Orders));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int VehicleID
+		{
+			get
+			{
+				return this._VehicleID;
+			}
+			set
+			{
+				if ((this._VehicleID != value))
+				{
+					this.OnVehicleIDChanging(value);
+					this.SendPropertyChanging();
+					this._VehicleID = value;
+					this.SendPropertyChanged("VehicleID");
+					this.OnVehicleIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LicensePlate", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string LicensePlate
+		{
+			get
+			{
+				return this._LicensePlate;
+			}
+			set
+			{
+				if ((this._LicensePlate != value))
+				{
+					this.OnLicensePlateChanging(value);
+					this.SendPropertyChanging();
+					this._LicensePlate = value;
+					this.SendPropertyChanged("LicensePlate");
+					this.OnLicensePlateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameVehicle", DbType="VarChar(50)")]
+		public string NameVehicle
+		{
+			get
+			{
+				return this._NameVehicle;
+			}
+			set
+			{
+				if ((this._NameVehicle != value))
+				{
+					this.OnNameVehicleChanging(value);
+					this.SendPropertyChanging();
+					this._NameVehicle = value;
+					this.SendPropertyChanged("NameVehicle");
+					this.OnNameVehicleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SeatingCapacity", DbType="Int")]
+		public System.Nullable<int> SeatingCapacity
+		{
+			get
+			{
+				return this._SeatingCapacity;
+			}
+			set
+			{
+				if ((this._SeatingCapacity != value))
+				{
+					this.OnSeatingCapacityChanging(value);
+					this.SendPropertyChanging();
+					this._SeatingCapacity = value;
+					this.SendPropertyChanged("SeatingCapacity");
+					this.OnSeatingCapacityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FuelType", DbType="NVarChar(20)")]
+		public string FuelType
+		{
+			get
+			{
+				return this._FuelType;
+			}
+			set
+			{
+				if ((this._FuelType != value))
+				{
+					this.OnFuelTypeChanging(value);
+					this.SendPropertyChanging();
+					this._FuelType = value;
+					this.SendPropertyChanged("FuelType");
+					this.OnFuelTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
+		public System.Nullable<int> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleStatus", DbType="Bit")]
+		public System.Nullable<bool> VehicleStatus
+		{
+			get
+			{
+				return this._VehicleStatus;
+			}
+			set
+			{
+				if ((this._VehicleStatus != value))
+				{
+					this.OnVehicleStatusChanging(value);
+					this.SendPropertyChanging();
+					this._VehicleStatus = value;
+					this.SendPropertyChanged("VehicleStatus");
+					this.OnVehicleStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(100)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Vehicle_Order", Storage="_Orders", ThisKey="VehicleID", OtherKey="VehicleID")]
+		public EntitySet<Order> Orders
+		{
+			get
+			{
+				return this._Orders;
+			}
+			set
+			{
+				this._Orders.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vehicle = this;
+		}
+		
+		private void detach_Orders(Order entity)
+		{
+			this.SendPropertyChanging();
+			entity.Vehicle = null;
 		}
 	}
 }

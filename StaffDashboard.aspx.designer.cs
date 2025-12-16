@@ -60,6 +60,15 @@ namespace CarRental
         protected global::System.Web.UI.WebControls.TextBox txtNewSeating;
 
         /// <summary>
+        /// txtNewPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewPrice;
+
+        /// <summary>
         /// ddlFuelType control.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,13 @@ namespace CarRental
         protected global::System.Web.UI.WebControls.DropDownList ddlFuelType;
 
         /// <summary>
-        /// txtNewPrice control.
+        /// fuNewImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPrice;
+        protected global::System.Web.UI.WebControls.FileUpload fuNewImage;
 
         /// <summary>
         /// btnAdd control.
@@ -87,22 +96,40 @@ namespace CarRental
         protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// ddlSapXep control.
+        /// txtSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSapXep;
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
-        /// btnLoadPage control.
+        /// ddlFilterFuel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLoadPage;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFilterFuel;
+
+        /// <summary>
+        /// ddlFilterStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFilterStatus;
+
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
         /// gvStaff control.
