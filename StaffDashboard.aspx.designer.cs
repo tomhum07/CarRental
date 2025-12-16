@@ -11,7 +11,7 @@ namespace CarRental
 {
 
 
-    public partial class AdminDashboard
+    public partial class StaffDashboard
     {
 
         /// <summary>
@@ -33,31 +33,49 @@ namespace CarRental
         protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
-        /// txtNewUser control.
+        /// txtNewLicensePlate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewUser;
+        protected global::System.Web.UI.WebControls.TextBox txtNewLicensePlate;
 
         /// <summary>
-        /// txtNewPass control.
+        /// txtNewNameVehicle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewPass;
+        protected global::System.Web.UI.WebControls.TextBox txtNewNameVehicle;
 
         /// <summary>
-        /// ddlNewPerm control.
+        /// txtNewSeating control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNewPerm;
+        protected global::System.Web.UI.WebControls.TextBox txtNewSeating;
+
+        /// <summary>
+        /// ddlFuelType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFuelType;
+
+        /// <summary>
+        /// txtNewPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewPrice;
 
         /// <summary>
         /// btnAdd control.
@@ -69,33 +87,6 @@ namespace CarRental
         protected global::System.Web.UI.WebControls.Button btnAdd;
 
         /// <summary>
-        /// txtSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSearch;
-
-        /// <summary>
-        /// ddlFilterRole control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFilterRole;
-
-        /// <summary>
-        /// ddlFilterStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFilterStatus;
-
-        /// <summary>
         /// ddlSapXep control.
         /// </summary>
         /// <remarks>
@@ -105,21 +96,21 @@ namespace CarRental
         protected global::System.Web.UI.WebControls.DropDownList ddlSapXep;
 
         /// <summary>
-        /// btnSearch control.
+        /// btnLoadPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSearch;
+        protected global::System.Web.UI.WebControls.Button btnLoadPage;
 
         /// <summary>
-        /// gvAccounts control.
+        /// gvStaff control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAccounts;
+        protected global::System.Web.UI.WebControls.GridView gvStaff;
     }
 }
