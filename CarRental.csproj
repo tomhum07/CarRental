@@ -72,6 +72,7 @@
     <Content Include="Content\LoginPageStyle.css" />
     <Content Include="Content\SignUpPageStyle.css" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="OrderManagement.aspx" />
     <Content Include="SignUpPage.aspx" />
     <Content Include="StaffDashboard.aspx" />
     <Content Include="Web.config" />
@@ -91,6 +92,13 @@
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OrderManagement.aspx.cs">
+      <DependentUpon>OrderManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderManagement.aspx.designer.cs">
+      <DependentUpon>OrderManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpPage.aspx.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
@@ -98,6 +106,13 @@
     </Compile>
     <Compile Include="SignUpPage.aspx.designer.cs">
       <DependentUpon>SignUpPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="StaffDashboard.aspx.cs">
       <DependentUpon>StaffDashboard.aspx</DependentUpon>
@@ -109,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
