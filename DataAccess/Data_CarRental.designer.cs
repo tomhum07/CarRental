@@ -1177,13 +1177,13 @@ namespace DataAccess
 		
 		private System.Nullable<int> _SeatingCapacity;
 		
-		private string _VehicleType;
-		
 		private string _FuelType;
 		
 		private System.Nullable<int> _Price;
 		
 		private System.Nullable<bool> _VehicleStatus;
+		
+		private string _Image;
 		
 		private EntitySet<Order> _Orders;
 		
@@ -1199,14 +1199,14 @@ namespace DataAccess
     partial void OnNameVehicleChanged();
     partial void OnSeatingCapacityChanging(System.Nullable<int> value);
     partial void OnSeatingCapacityChanged();
-    partial void OnVehicleTypeChanging(string value);
-    partial void OnVehicleTypeChanged();
     partial void OnFuelTypeChanging(string value);
     partial void OnFuelTypeChanged();
     partial void OnPriceChanging(System.Nullable<int> value);
     partial void OnPriceChanged();
     partial void OnVehicleStatusChanging(System.Nullable<bool> value);
     partial void OnVehicleStatusChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
     #endregion
 		
 		public Vehicle()
@@ -1295,26 +1295,6 @@ namespace DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehicleType", DbType="NVarChar(20)")]
-		public string VehicleType
-		{
-			get
-			{
-				return this._VehicleType;
-			}
-			set
-			{
-				if ((this._VehicleType != value))
-				{
-					this.OnVehicleTypeChanging(value);
-					this.SendPropertyChanging();
-					this._VehicleType = value;
-					this.SendPropertyChanged("VehicleType");
-					this.OnVehicleTypeChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FuelType", DbType="NVarChar(20)")]
 		public string FuelType
 		{
@@ -1371,6 +1351,26 @@ namespace DataAccess
 					this._VehicleStatus = value;
 					this.SendPropertyChanged("VehicleStatus");
 					this.OnVehicleStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(100)")]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}
