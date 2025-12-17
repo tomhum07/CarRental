@@ -44,6 +44,10 @@ namespace CarRental
                 }
                 // --- KẾT THÚC ĐOẠN VIẾT THÊM ---
 
+                // --- THÊM DÒNG NÀY VÀO ĐÂY ---
+                Session["Username"] = account.Username;
+                // -----------------------------
+
                 if (account.Permission == 1)
                 {
                     Response.Redirect("AdminDashboard.aspx");

@@ -85,7 +85,20 @@ namespace CarRental
 
             if (ddlFilterStatus.SelectedValue != "All")
             {
-                query = query.Where(x => x.OrderStatus == ddlFilterStatus.SelectedValue);
+                string selectedStatus = ddlFilterStatus.SelectedValue;
+
+                // KIỂM TRA ĐẶC BIỆT CHO TRẠNG THÁI "CHỜ DUYỆT"
+                // Giả sử Value của item "Chờ duyệt" trong DropDownList bạn đặt là "Pending"
+                if (selectedStatus == "Pending")
+                {
+                    // Lọc các dòng mà OrderStatus trong DB là NULL hoặc Rỗng
+                    query = query.Where(x => x.OrderStatus == null || x.OrderStatus == "");
+                }
+                else
+                {
+                    // Các trạng thái khác (Approved, Completed...) so sánh bình thường
+                    query = query.Where(x => x.OrderStatus == selectedStatus);
+                }
             }
 
             gvOrders.DataSource = query.ToList();

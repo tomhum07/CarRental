@@ -138,7 +138,7 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
                 
-                <asp:TemplateField HeaderText="Đăng xe">
+             <%--   <asp:TemplateField HeaderText="Đăng xe">
                     <ItemTemplate>
                         <asp:LinkButton ID="btnPost" runat="server" 
                             CommandName="PostVehicle" 
@@ -147,11 +147,11 @@
                             <i class="fa-solid fa-share-from-square"></i> Đăng
                         </asp:LinkButton>
                     </ItemTemplate>
-                </asp:TemplateField>
-
+                </asp:TemplateField> --%>
+              
                 <asp:TemplateField HeaderText="Thao tác" ItemStyle-Width="100px">
                     <ItemTemplate>
-                        <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit" CssClass="btn-action edit-btn"><i class="fa-solid fa-pen-to-square"></i></asp:LinkButton>
+                       <%--  <asp:LinkButton ID="btnEdit" runat="server" CommandName="Edit" CssClass="btn-action edit-btn"><i class="fa-solid fa-pen-to-square"></i></asp:LinkButton> --%>
                         <asp:LinkButton ID="btnDelete" runat="server" CommandName="Delete" CssClass="btn-action delete-btn" OnClientClick="return confirm('Bạn có chắc muốn xóa?');"><i class="fa-solid fa-trash"></i></asp:LinkButton>
                     </ItemTemplate>
                     <EditItemTemplate>

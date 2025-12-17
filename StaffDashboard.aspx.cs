@@ -15,10 +15,10 @@ namespace CarRental
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                LoadData();
-            }
+            //if (!IsPostBack)
+            //{
+            LoadData();
+            //}
         }
 
         // --- HÀM LOAD DỮ LIỆU ĐA NĂNG (TÌM KIẾM + LỌC) ---

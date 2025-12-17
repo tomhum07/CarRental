@@ -71,8 +71,10 @@
     <Content Include="AdminDashboard.aspx" />
     <Content Include="Content\LoginPageStyle.css" />
     <Content Include="Content\SignUpPageStyle.css" />
+    <Content Include="CustomerDashboard.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="OrderManagement.aspx" />
+    <Content Include="PayPage.aspx" />
     <Content Include="SignUpPage.aspx" />
     <Content Include="StaffDashboard.aspx" />
     <Content Include="Web.config" />
@@ -84,6 +86,13 @@
     </Compile>
     <Compile Include="AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDashboard.aspx.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDashboard.aspx.designer.cs">
+      <DependentUpon>CustomerDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
@@ -98,6 +107,13 @@
     </Compile>
     <Compile Include="OrderManagement.aspx.designer.cs">
       <DependentUpon>OrderManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayPage.aspx.cs">
+      <DependentUpon>PayPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayPage.aspx.designer.cs">
+      <DependentUpon>PayPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpPage.aspx.cs">
