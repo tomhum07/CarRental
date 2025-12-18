@@ -25,7 +25,6 @@
                 <nav class="nav-menu">
                     <a href="Home.aspx">Trang chủ</a>
                     <a href="VehicleList.aspx">Xe</a>
-                    <a href="Booking.aspx">Đặt xe</a>
                     <a href="Contact.aspx">Liên hệ</a>
                 </nav>
 
@@ -40,7 +39,7 @@
                         <!-- Dropdown menu -->
                         <div class="account-menu">
                             <a href="CustomerProfile.aspx">Tài khoản của tôi</a>
-                            <asp:LinkButton ID="btnLogout" runat="server" CssClass="logout" OnClick="btnLogout_Click">Đăng xuất</asp:LinkButton>                              
+                            <asp:LinkButton ID="btnLogout" runat="server" CssClass="logout" OnClick="btnLogout_Click">Đăng xuất</asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -55,7 +54,40 @@
 
         <!-- ===== FOOTER ===== -->
         <footer class="site-footer">
-            © 2025 Car Rental System
+            <div class="footer-container">
+
+                <!-- BRAND -->
+                <div class="footer-col">
+                    <h3>Cho thuê xe 3 con cá</h3>
+                    <p>
+                        Dịch vụ cho thuê xe uy tín, thủ tục nhanh gọn,  
+                đồng hành cùng bạn trên mọi cung đường.
+                    </p>
+                </div>
+
+                <!-- LINKS -->
+                <div class="footer-col">
+                    <h4>Liên kết</h4>
+                    <ul>
+                        <li><a href="Home.aspx">Trang chủ</a></li>
+                        <li><a href="VehicleList.aspx">Danh sách xe</a></li>
+                        <li><a href="Contact.aspx">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTACT -->
+                <div class="footer-col">
+                    <h4>Liên hệ</h4>
+                    <p><i class="fa-solid fa-phone"></i>0909 123 456</p>
+                    <p><i class="fa-solid fa-envelope"></i>support@chothuexe3conca.vn</p>
+                    <p><i class="fa-solid fa-location-dot"></i>Cao Lãnh, Đồng Tháp</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                © 2025 Cho thuê xe 3 con cá • All rights reserved
+            </div>
         </footer>
 
     </form>

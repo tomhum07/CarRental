@@ -15,20 +15,32 @@ namespace CarRental
         {
             if (!IsPostBack)
             {
-                // Giả lập session để test
                 if (Session["Username"] == null)
                 {
-                    Session["Username"] = "customer01";
+                    Response.Redirect("LoginPage.aspx");
+                    return;
                 }
-
                 int vehicleId = int.Parse(Request.QueryString["VehicleID"] ?? "1");
 
-                LoadCustomerInfo();
                 LoadVehicleInfo(vehicleId);
                 SetDefaultDates();
+                LoadCustomerInfo();
+                
+                
+                if (!ValidateInputs())
+                {
+                    ShowMessage("Vui lòng cập nhật đầy đủ thông tin hồ sơ!", false);
+                    return;
+                }
+                
             }
         }
-
+        private bool ValidateInputs()
+        {
+            return !string.IsNullOrWhiteSpace(lblCustomerName.Text) &&
+                   !string.IsNullOrWhiteSpace(lblCustomerAddress.Text) &&
+                   !string.IsNullOrWhiteSpace(lblCustomerPhone.Text);
+        }
         private void LoadCustomerInfo()
         {
             string username = Session["Username"]?.ToString()?.Trim();
@@ -39,6 +51,7 @@ namespace CarRental
                 if (customerInfo != null)
                 {
                     lblCustomerName.Text = customerInfo.Fullname;
+                    lblCustomerID.Text = customerInfo.CustomerCCCD;
                     lblCustomerPhone.Text = customerInfo.Phone;
                     lblCustomerAddress.Text = customerInfo.Address;
                 }
@@ -67,33 +80,6 @@ namespace CarRental
 
                     imgVehicle.ImageUrl = "~/Image/Vehicle/" + vehicleInfo.Image;
                 }
-                //using (SqlConnection conn = new SqlConnection(connectionString))
-                //{
-                //    string query = @"SELECT VehicleID, NameVehicle, SeatingCapacity, FuelType, 
-                //                   LicensePlate, Price, Image FROM Vehicle WHERE VehicleID = @VehicleID";
-
-                //    SqlCommand cmd = new SqlCommand(query, conn);
-                //    cmd.Parameters.AddWithValue("@VehicleID", vehicleId);
-
-                //    conn.Open();
-                //    SqlDataReader reader = cmd.ExecuteReader();
-
-                //    if (reader.Read())
-                //    {
-                //        lblVehicleName.Text = reader["NameVehicle"].ToString();
-                //        lblSeating.Text = reader["SeatingCapacity"].ToString();
-                //        lblFuelType.Text = reader["FuelType"].ToString();
-                //        lblLicensePlate.Text = reader["LicensePlate"].ToString();
-
-                //        decimal price = Convert.ToDecimal(reader["Price"]);
-                //        lblPricePerDay.Text = string.Format("{0:N0} VNĐ/ngày", price);
-
-                //        Session["VehiclePrice"] = price;
-                //        Session["VehicleID"] = vehicleId;
-
-                //        imgVehicle.ImageUrl = "~/Image/Vehicle/" + reader["Image"].ToString();
-                //    }
-                //}
             }
             catch (Exception ex)
             {
@@ -105,7 +91,7 @@ namespace CarRental
         {
             DateTime today = DateTime.Today;
             txtRentalDate.Text = today.AddDays(1).ToString("yyyy-MM-dd");
-            txtReturnDate.Text = today.AddDays(4).ToString("yyyy-MM-dd");
+            txtReturnDate.Text = today.AddDays(1).ToString("yyyy-MM-dd");
             CalculateTotal(null, null);
         }
 
@@ -119,13 +105,18 @@ namespace CarRental
                 DateTime rentalDate = DateTime.Parse(txtRentalDate.Text);
                 DateTime returnDate = DateTime.Parse(txtReturnDate.Text);
 
-                if (returnDate <= rentalDate)
+                if (returnDate < rentalDate)
                 {
                     ShowMessage("Ngày trả xe phải sau ngày nhận xe!", false);
                     return;
                 }
 
                 int days = (returnDate - rentalDate).Days;
+                if (days == 0)
+                {
+                    days = 1;
+                    lblDuration.Text = "1";
+                }
                 lblDuration.Text = days.ToString();
                 lblDays.Text = days.ToString();
 
@@ -173,7 +164,6 @@ namespace CarRental
                     order.RentalDate = rentalDate;
                     order.ReturnDate = returnDate;
                     order.TotalPrice = totalPrice;
-                    order.OrderStatus = "Approval";
 
                     if (vehicle != null)
                     {

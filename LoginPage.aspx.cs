@@ -56,7 +56,7 @@ namespace CarRental
                 else if (account.Permission == 3)
                 {
                     Session["Username"] = txtUsername.Text;
-                    Response.Redirect("VehicleList.aspx");
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {

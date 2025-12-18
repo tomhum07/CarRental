@@ -287,8 +287,8 @@
                     <!-- Địa chỉ nhận xe -->
                     <div class="card">
                         <div class="card-header">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Địa Chỉ Nhận Xe
+                            <i class="fa-solid fa-address-card"></i>
+                            Thông tin khách hàng
                         </div>
                         <div class="card-body">
                             <div class="customer-name">
@@ -299,6 +299,9 @@
                             </div>
                             <div class="customer-address">
                                 <asp:Label ID="lblCustomerAddress" runat="server"></asp:Label>
+                            </div>
+                            <div class="customer-id">
+                                <asp:Label ID="lblCustomerID" runat="server"></asp:Label>
                             </div>
                             <asp:Button ID="btnChangeAddress" runat="server" Text="Thay Đổi" CssClass="btn-change" OnClick="btnChangeAddress_Click" />
                         </div>
