@@ -9,7 +9,7 @@
         .main-content {
             flex: 1;
             max-width: 1400px;
-            margin: 70px auto;
+            margin: 10px auto;
             padding: 30px 20px;
             width: 100%;
         }
@@ -123,6 +123,43 @@
                 text-decoration: none;
                 color: white;
             }
+
+        .filter-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 15px 10px;
+            background: #f9fafb;
+            border-radius: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 1px solid #e5e7eb;
+        }
+
+            .filter-section strong {
+                color: #4b5563;
+                font-size: 15px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+                .filter-section strong i {
+                    color: #ef4444;
+                }
+
+        .input-filter {
+            padding: 5px 10px;
+            font-size: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #ffffff;
+            color: #1f2937;
+            font-weight: 500;
+            min-width: 100px;
+        }
     </style>
 </asp:Content>
 
@@ -132,7 +169,23 @@
     <div class="main-content">
         <h1 class="page-title">Danh Sách Xe Cho Thuê</h1>
         <p class="page-subtitle">Chọn xe phù hợp với nhu cầu của bạn</p>
-
+        <div class="filter-section">
+            <i class="fa-solid fa-filter"></i>
+            <span>
+                <asp:DropDownList ID="ddlSeat" CssClass="input-filter" runat="server" AutoPostBack="True">
+                    <asp:ListItem>Số chỗ</asp:ListItem>
+                    <asp:ListItem Value="4">4 chỗ</asp:ListItem>
+                    <asp:ListItem Value="7">7 chỗ</asp:ListItem>
+                    <asp:ListItem Value="16">16 chỗ</asp:ListItem>
+            </asp:DropDownList> 
+                <asp:DropDownList ID="ddlFuel" CssClass="input-filter" runat="server" AutoPostBack="True">
+                    <asp:ListItem>Nhiên liệu</asp:ListItem>
+                    <asp:ListItem>Xăng</asp:ListItem>
+                    <asp:ListItem>Dầu</asp:ListItem>
+                    <asp:ListItem>Điện</asp:ListItem>
+            </asp:DropDownList>
+            </span>
+        </div>
         <asp:DataList ID="DataList1" runat="server" RepeatLayout="Table" RepeatColumns="4" RepeatDirection="Horizontal" CellPadding="0" CellSpacing="25" OnItemCommand="DataList1_ItemCommand">
             <ItemTemplate>
                 <div class="vehicle-card">

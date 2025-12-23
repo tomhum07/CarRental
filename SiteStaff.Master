@@ -22,11 +22,7 @@
 
             <ul class="sidebar-menu">
                 <li>
-                    <a href="CustomerDashboard.aspx"><i class="fa-solid fa-house"></i>Trang chủ</a>
-                </li>
-
-                <li>
-                    <a href="StaffDashboard.aspx"><i class="fa-solid fa-car"></i>Quản lý xe</a>
+                    <a href="VehicleManagement.aspx"><i class="fa-solid fa-car"></i>Quản lý xe</a>
                 </li>
 
                 <li>

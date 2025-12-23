@@ -1,8 +1,8 @@
-﻿* {
+﻿/** {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
 body {
@@ -10,91 +10,297 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.95) 0%, rgba(17, 24, 39, 0.98) 100%), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1920&q=80') center/cover;
+    background-attachment: fixed;
+    position: relative;
+}*/
+
+    /* Animated background circles */
+    /*body::before,
+    body::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(239, 68, 68, 0.1);
+        animation: float 6s ease-in-out infinite;
+    }
+
+    body::before {
+        width: 400px;
+        height: 400px;
+        top: -100px;
+        left: -100px;
+    }
+
+    body::after {
+        width: 300px;
+        height: 300px;
+        bottom: -80px;
+        right: -80px;
+        animation-delay: 3s;
+    }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
 }
 
 .container {
     position: relative;
-    width: 500px;
-    height: 450px;
-    background: #fff;
-    border-radius: 30px;
+    width: 480px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
     margin: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .2);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+    overflow: visible;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}*/
+
+    /* Logo/Brand area */
+    /*.container::before {
+        content: '🚗';
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 100px;
+        background: #ef4444;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 50px;
+        box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+    }
 
     .container h1 {
-        font-size: 45px;
-        margin: -10px 0;
+        font-size: 28px;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 8px;
+        margin-top: 60px;
     }
+
+        .container h1::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #ef4444;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
 
 .form-box {
     width: 100%;
-    height: auto;
     text-align: center;
-    padding: 40px;
-    background: #fff;
-    padding: 40px;
+    padding: 20px 45px 45px;
+    background: transparent;
+}*/
+
+/* Input styling */
+/*.input-box {
+    position: relative;
+    margin: 22px 0;
+    text-align: left;
 }
 
-.input-box {
-    position: relative;
-    margin: 30px 0;
-}
+    .input-box label {
+        display: block;
+        font-size: 13px;
+        font-weight: 600;
+        color: #4b5563;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
 
     .input-box input {
         width: 100%;
-        padding: 13px 50px 13px 20px;
-        background: #eee;
-        border-radius: 8px;
-        border: none;
+        padding: 15px 50px 15px 18px;
+        background: #ffffff;
+        border-radius: 10px;
+        border: 2px solid #e5e7eb;
         outline: none;
-        font-size: 16px;
-        color: #333;
+        font-size: 15px;
+        color: #1f2937;
         font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     }
+
+        .input-box input:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1), 0 4px 8px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .input-box input::placeholder {
+            color: #9ca3af;
+            font-weight: 400;
+        }*/
+
+    /* Icon inside input */
+    /*.input-box::before {
+        content: '';
+        position: absolute;
+        left: 18px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        color: #9ca3af;
+        font-size: 16px;
+    }
+
+    .input-box:first-of-type::before {
+        content: '\f007';*/ /* user icon */
+    /*}
+
+    .input-box:nth-of-type(2)::before,
+    .input-box:nth-of-type(3)::before {
+        content: '\f023';*/ /* lock icon */
+    /*}
 
 #btnLogin {
     width: 100%;
-    height: 48px;
-    background: #7494ec;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    height: 54px;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
     border: none;
     cursor: pointer;
     color: #fff;
-    font-weight: 600;
-    font-size: 20px;
-    margin: 20px 0;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 30px 0 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
+
+    #btnLogin::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.5s;
+    }
+
+    #btnLogin:hover::before {
+        left: 100%;
+    }
+
+    #btnLogin:hover {
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(239, 68, 68, 0.45);
+    }
+
+    #btnLogin:active {
+        transform: translateY(-1px);
+    }
 
 #lblMessage {
-    color: #ff0000;
+    color: #ef4444;
+    font-size: 13px;
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    background: rgba(239, 68, 68, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 3px solid #ef4444;
+}*/
+
+/* Link Login */
+/*.form-box > div:last-child {
+    color: #6b7280;
+    font-size: 14px;
+    margin-top: 20px;
 }
 
-/* Đảm bảo ô input có đủ chỗ trống bên phải để chứa icon */
-.input-box input {
-    /* Các thuộc tính cũ giữ nguyên */
-    padding-right: 45px; /* Tăng padding bên phải lên để không bị icon che chữ */
+.form-box a {
+    color: #ef4444;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+    transition: all 0.2s;
+    position: relative;
 }
 
-/* Style cho icon (dùng chung cho cả Login và SignUp) */
-.toggle-icon {
-    position: absolute;
-    right: 15px; /* Cách lề phải 15px */
-    top: 50%; /* Căn giữa theo chiều dọc */
-    transform: translateY(-50%); /* Căn giữa chính xác */
-    cursor: pointer; /* Hiện bàn tay khi di chuột */
-    color: #888; /* Màu xám nhạt */
-    font-size: 16px;
-    z-index: 10; /* Nổi lên trên input */
-}
-
-    /* Hiệu ứng hover */
-    .toggle-icon:hover {
-        color: #7494ec; /* Đổi màu xanh khi di chuột vào */
+    .form-box a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ef4444;
+        transition: width 0.3s;
     }
+
+    .form-box a:hover::after {
+        width: 100%;
+    }
+
+    .form-box a:hover {
+        color: #dc2626;
+    }*/
+
+/* Toggle password icon */
+/*.toggle-icon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #9ca3af;
+    font-size: 18px;
+    z-index: 10;
+    transition: all 0.2s;
+}
+
+    .toggle-icon:hover {
+        color: #ef4444;
+        transform: translateY(-50%) scale(1.1);
+    }*/
+
+/* Responsive */
+/*@media (max-width: 560px) {
+    .container {
+        width: 95%;
+        margin: 70px 20px 20px;
+    }
+
+    .form-box {
+        padding: 20px 30px 35px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+        margin-top: 50px;
+    }
+
+    .input-box {
+        margin: 18px 0;
+    }
+
+    body::before,
+    body::after {
+        display: none;
+    }
+}*/

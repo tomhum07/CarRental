@@ -45,6 +45,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -79,7 +80,8 @@
     <Content Include="CustomerProfile.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="OrderManagement.aspx" />
-    <Content Include="StaffDashboard.aspx" />
+    <Content Include="Statistics.aspx" />
+    <Content Include="VehicleManagement.aspx" />
     <Content Include="TestAPI.aspx" />
     <Content Include="VehicleList.aspx" />
     <Content Include="CustomerDashboard.aspx" />
@@ -147,12 +149,19 @@
     <Compile Include="SiteStaff.Master.designer.cs">
       <DependentUpon>SiteStaff.Master</DependentUpon>
     </Compile>
-    <Compile Include="StaffDashboard.aspx.cs">
-      <DependentUpon>StaffDashboard.aspx</DependentUpon>
+    <Compile Include="Statistics.aspx.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StaffDashboard.aspx.designer.cs">
-      <DependentUpon>StaffDashboard.aspx</DependentUpon>
+    <Compile Include="Statistics.aspx.designer.cs">
+      <DependentUpon>Statistics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleManagement.aspx.cs">
+      <DependentUpon>VehicleManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VehicleManagement.aspx.designer.cs">
+      <DependentUpon>VehicleManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="TestAPI.aspx.cs">
       <DependentUpon>TestAPI.aspx</DependentUpon>

@@ -168,22 +168,22 @@ namespace CarRental
         protected global::System.Web.UI.WebControls.Label lblSubTotal;
 
         /// <summary>
-        /// lblServiceFee control.
+        /// rbCash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblServiceFee;
+        protected global::System.Web.UI.WebControls.RadioButton rbCash;
 
         /// <summary>
-        /// lblInsuranceFee control.
+        /// rbTransfer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInsuranceFee;
+        protected global::System.Web.UI.WebControls.RadioButton rbTransfer;
 
         /// <summary>
         /// lblTotal control.
@@ -202,6 +202,24 @@ namespace CarRental
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnConfirmPayment;
+
+        /// <summary>
+        /// qrCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl qrCode;
+
+        /// <summary>
+        /// imgQR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgQR;
 
         /// <summary>
         /// lblMessage control.

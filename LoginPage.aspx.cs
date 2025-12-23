@@ -51,7 +51,7 @@ namespace CarRental
                 else if (account.Permission == 2)
                 {
                     Session["Username"] = txtUsername.Text;
-                    Response.Redirect("StaffDashboard.aspx");
+                    Response.Redirect("VehicleManagement.aspx");
                 }
                 else if (account.Permission == 3)
                 {
@@ -66,7 +66,7 @@ namespace CarRental
             else
             {
                 // Failed login
-                lblMessage.Text = "Invalid username or password.";
+                lblMessage.Text = "Sai username hoặc password.";
             }
         }
 

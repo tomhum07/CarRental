@@ -91,15 +91,15 @@ namespace CarRental
                 vehicle.VehicleStatus = false; // Mặc định là Chưa thuê (false)
 
                 // Xử lý Upload Ảnh
-                string imagePath = "~/CarImages/No_Image_Available.jpg"; // Ảnh mặc định nếu không up
+                string imagePath = "~/Image/No_Image_Available.jpg"; // Ảnh mặc định nếu không up
                 if (fuNewImage.HasFile)
                 {
                     string fileName = Path.GetFileName(fuNewImage.FileName);
                     // Tạo tên file duy nhất để tránh trùng
-                    string uniqueFileName = DateTime.Now.Ticks.ToString() + "_" + fileName;
-                    string savePath = Server.MapPath("~/CarImages/") + uniqueFileName;
+                    string uniqueFileName = fileName;
+                    string savePath = Server.MapPath("~/Image/Vehicle/") + uniqueFileName;
                     fuNewImage.SaveAs(savePath);
-                    imagePath = "~/CarImages/" + uniqueFileName;
+                    imagePath = uniqueFileName;
                 }
                 vehicle.Image = imagePath; // Đảm bảo DB có cột VehicleImage
 
@@ -145,8 +145,6 @@ namespace CarRental
                 TextBox txtChoNgoi = (TextBox)gvStaff.Rows[e.RowIndex].Cells[3].Controls[0]; // Cột 3 là Số chỗ
                 TextBox txtNhienLieu = (TextBox)gvStaff.Rows[e.RowIndex].Cells[4].Controls[0]; // Cột 4 là Nhiên liệu
                 TextBox txtGia = (TextBox)gvStaff.Rows[e.RowIndex].Cells[5].Controls[0]; // Cột 5 là Giá
-
-                //CheckBox ckbTrangThai = (CheckBox)gvStaff.Rows[e.RowIndex].FindControl("chkTrangThai");
                 FileUpload fuEditImg = (FileUpload)gvStaff.Rows[e.RowIndex].FindControl("fuEditImage");
 
                 var vehicle = db.Vehicles.SingleOrDefault(v => v.LicensePlate == bienSo);
@@ -163,10 +161,10 @@ namespace CarRental
                     if (fuEditImg.HasFile)
                     {
                         string fileName = Path.GetFileName(fuEditImg.FileName);
-                        string uniqueFileName = DateTime.Now.Ticks.ToString() + "_" + fileName;
-                        string savePath = Server.MapPath("~/CarImages/") + uniqueFileName;
+                        string uniqueFileName = fileName;
+                        string savePath = Server.MapPath("~/Image/Vehicle/") + uniqueFileName;
                         fuEditImg.SaveAs(savePath);
-                        vehicle.Image = "~/CarImages/" + uniqueFileName;
+                        vehicle.Image = uniqueFileName;
                     }
 
                     db.SubmitChanges();

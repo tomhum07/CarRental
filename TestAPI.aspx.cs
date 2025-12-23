@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +10,7 @@ namespace CarRental
 {
     public partial class TestAPI : System.Web.UI.Page
     {
+        Data_CarRentalDataContext db = new Data_CarRentalDataContext(); 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,6 +28,24 @@ namespace CarRental
 
                 imgQR.ImageUrl = qrUrl;
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            DateTime startDate = DateTime.Parse(txtStartDate.Text);
+            var result = db.Orders
+                                .Where(x => x.ReturnDate.Value.Month == 12 && x.OrderStatus == "Completed")
+                                .GroupBy(x => x.ReturnDate.Value.Day)
+                                .Select(g => new
+                                {
+                                    Ngay = g.Key,
+                                    TotalDay = g.Sum(o => o.TotalPrice)
+                                })
+                                .OrderBy(x => x.Ngay);
+            Chart1.Series["DoanhThu"].XValueMember = "Ngay";
+            Chart1.Series["DoanhThu"].YValueMembers = "TotalDay";
+            Chart1.DataSource = result;
+            Chart1.DataBind();
         }
     }
 }

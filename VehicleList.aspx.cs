@@ -21,6 +21,14 @@ namespace CarRental
             
             var vehicle = from p in db.Vehicles.Where(v => v.VehicleStatus == false).OrderBy(v => v.NameVehicle)
                           select p;
+            if (ddlSeat.SelectedIndex > 0)
+            {
+                vehicle = vehicle.Where(v => v.SeatingCapacity == int.Parse(ddlSeat.SelectedValue));
+            }
+            if (ddlFuel.SelectedIndex > 0)
+            {
+                vehicle = vehicle.Where(v => v.FuelType.Contains(ddlFuel.SelectedValue));
+            }
             DataList1.DataSource = vehicle;
             DataList1.DataBind();
         }

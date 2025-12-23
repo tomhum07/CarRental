@@ -25,14 +25,13 @@ namespace CarRental
                 LoadVehicleInfo(vehicleId);
                 SetDefaultDates();
                 LoadCustomerInfo();
-                
+                qrCode.Visible = false;
                 
                 if (!ValidateInputs())
                 {
                     ShowMessage("Vui lòng cập nhật đầy đủ thông tin hồ sơ!", false);
                     return;
                 }
-                
             }
         }
         private bool ValidateInputs()
@@ -90,8 +89,8 @@ namespace CarRental
         private void SetDefaultDates()
         {
             DateTime today = DateTime.Today;
-            txtRentalDate.Text = today.AddDays(1).ToString("yyyy-MM-dd");
-            txtReturnDate.Text = today.AddDays(1).ToString("yyyy-MM-dd");
+            txtRentalDate.Text = today.ToString("yyyy-MM-dd");
+            txtReturnDate.Text = today.ToString("yyyy-MM-dd");
             CalculateTotal(null, null);
         }
 
@@ -125,13 +124,9 @@ namespace CarRental
                     : 500000;
 
                 decimal subtotal = pricePerDay * days;
-                decimal serviceFee = subtotal * 0.05m;
-                decimal insuranceFee = subtotal * 0.03m;
-                decimal total = subtotal + serviceFee + insuranceFee;
+                decimal total = subtotal;
 
                 lblSubTotal.Text = string.Format("{0:N0} VNĐ", subtotal);
-                //lblServiceFee.Text = string.Format("{0:N0} VNĐ", serviceFee);
-                //lblInsuranceFee.Text = string.Format("{0:N0} VNĐ", insuranceFee);
                 lblTotal.Text = string.Format("{0:N0} VNĐ", total);
 
                 Session["TotalPrice"] = total;
@@ -181,12 +176,24 @@ namespace CarRental
                         ShowMessage("Không tìm thấy xe", false);
                         return;
                     }
-
+                    if (rbCash.Checked == false && rbTransfer.Checked == false)
+                    {
+                        ShowMessage("Vui lòng chọn hình thức thanh toán!", false);
+                        return;
+                    }
                     db.Orders.InsertOnSubmit(order);
                     db.SubmitChanges();
                     btnConfirmPayment.Enabled = false;
                     btnConfirmPayment.Text = "Đặt xe thành công!";
                     ShowMessage($"Đặt xe thành công! Mã đơn: {order.OrderID}", true);
+                    
+                    if (rbTransfer.Checked)
+                    {
+                        qrCode.Visible = true;
+                        createQR(totalPrice, order.OrderID);
+                    }
+
+                    disableForm();
                 }
                 catch (Exception ex)
                 {
@@ -228,6 +235,39 @@ namespace CarRental
 
             ScriptManager.RegisterStartupScript(this, GetType(), "hideMessage",
                 "setTimeout(function(){ var msg = document.querySelector('.message'); if(msg) msg.style.display='none'; }, 5000);", true);
+        }
+        private void createQR(int totalPrice, int maDon)
+        {
+            string bankBin = "970432";
+            string accountNo = "0772123133";
+            string accountName = "LE MINH TRONG";
+            string amount = totalPrice.ToString();
+            string note = "THANH TOAN DAT XE MA DON " + maDon;
+
+            string qrUrl = $"https://api.vietqr.io/image/{bankBin}-{accountNo}-compact2.png" +
+                           $"?amount={amount}" +
+                           $"&addInfo={Server.UrlEncode(note)}" +
+                           $"&accountName={Server.UrlEncode(accountName)}";
+
+            imgQR.ImageUrl = qrUrl;
+        }
+        protected void rbTransfer_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCash.Checked)
+                rbCash.Checked = false;
+        }
+
+        protected void rbCash_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbTransfer.Checked)
+                rbTransfer.Checked = false;
+        }
+        private void disableForm()
+        {
+            txtRentalDate.Enabled = false;
+            txtReturnDate.Enabled = false;
+            rbCash.Enabled = false;
+            rbTransfer.Enabled = false;
         }
     }
 }

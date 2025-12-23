@@ -260,7 +260,12 @@
         .message.error {
             background: #e74c3c;
         }
-
+        .payment-container {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            margin-top: 20px
+        }
         @media (max-width: 992px) {
             .layout {
                 grid-template-columns: 1fr;
@@ -295,7 +300,6 @@
                         <div class="card-body">
                             <div class="customer-info">
                                 <b>Họ & tên:</b> <asp:Label ID="lblCustomerName" runat="server"></asp:Label> <br />
-                                
                                 <b>Số điện thoại:</b> <asp:Label ID="lblCustomerPhone" runat="server"></asp:Label> <br />
                                 <b>Địa chỉ:</b> <asp:Label ID="lblCustomerAddress" runat="server"></asp:Label> <br />
                                 <b>Căn cước công dân:</b> <asp:Label ID="lblCustomerID" runat="server"></asp:Label> <br />
@@ -373,17 +377,15 @@
                                 <span>Giá thuê xe (x<asp:Label ID="lblDays" runat="server">0</asp:Label>
                                     ngày)</span>
                                 <span>
-                                    <asp:Label ID="lblSubTotal" runat="server">0 VNĐ</asp:Label></span>
+                                    <asp:Label ID="lblSubTotal" runat="server">0 VNĐ</asp:Label>
+                                </span>
                             </div>
                             <div class="row">
-                                <span>Phí dịch vụ</span>
+                                <span>Hình thức thanh toán</span>
                                 <span>
-                                    <asp:Label ID="lblServiceFee" runat="server">0 VNĐ</asp:Label></span>
-                            </div>
-                            <div class="row">
-                                <span>Phí bảo hiểm</span>
-                                <span>
-                                    <asp:Label ID="lblInsuranceFee" runat="server">0 VNĐ</asp:Label></span>
+                                    Tiền mặt  <asp:RadioButton ID="rbCash" runat="server" OnCheckedChanged="rbCash_CheckedChanged" AutoPostBack="True" /> 
+                                    Chuyển khoản <asp:RadioButton ID="rbTransfer" runat="server" OnCheckedChanged="rbTransfer_CheckedChanged" AutoPostBack="True" />
+                                </span>
                             </div>
                             <div class="divider"></div>
                             <div class="row total">
@@ -394,6 +396,21 @@
                         </div>
                         <asp:Button ID="btnConfirmPayment" runat="server" Text="Xác Nhận Đặt Xe" CssClass="btn-confirm" OnClick="btnConfirmPayment_Click" />
                     </div>
+
+                    <div id="qrCode" class="payment-container" runat="server">
+                        <div class="summary-card">
+                            <div class="summary-header">
+                                Mã QR thanh toán
+                            </div>
+                            <div class="summary-body">
+                                <div>
+                                    <asp:Image ID="imgQR" runat="server" Width="300" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
             </div>
         </div>
