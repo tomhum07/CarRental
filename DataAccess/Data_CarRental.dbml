@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CarRentalDB" Class="Data_CarRentalDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-DHP64SV;Initial Catalog=CarRentalDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="CarRentalDBConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LMT;Initial Catalog=CarRentalDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="CarRentalDBConnectionString2" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Account" Member="Accounts">
     <Type Name="Account">
       <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />

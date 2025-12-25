@@ -48,7 +48,7 @@ namespace DataAccess
     #endregion
 		
 		public Data_CarRentalDataContext() : 
-				base(global::DataAccess.Properties.Settings.Default.CarRentalDBConnectionString1, mappingSource)
+				base(global::DataAccess.Properties.Settings.Default.CarRentalDBConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}

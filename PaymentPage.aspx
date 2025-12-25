@@ -179,8 +179,6 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 20px;
         }
 
         .summary-header {
@@ -261,7 +259,7 @@
             background: #e74c3c;
         }
         .payment-container {
-            display: flex;
+            display: flex;  
             justify-content: center; 
             align-items: center; 
             margin-top: 20px

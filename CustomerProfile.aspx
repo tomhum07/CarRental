@@ -18,7 +18,7 @@
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             max-width: 900px;
-            margin: 100px auto 80px;
+            margin: 70px auto 80px;
             border: 1px solid #f3f4f6;
         }
 

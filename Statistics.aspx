@@ -10,7 +10,8 @@
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             border: 1px solid #f3f4f6;
-            width: 1500px
+            min-width: 1100px;
+            max-width: 1500px;
         }
 
             .container h2 {

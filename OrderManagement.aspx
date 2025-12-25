@@ -8,11 +8,13 @@
         /* Page Container */
         .page-container {
             background: #ffffff;
-            padding: 50px;
+            padding: 40px;
             border-radius: 16px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.08);
             border: 1px solid #f3f4f6;
-            width: 1500px
+            min-width: 1100px;
+            max-width: 1500px;
+            margin: 0 auto;
         }
 
             .page-container h2 {
@@ -122,7 +124,7 @@
             .mydatagrid th {
                 background: #1f2937;
                 color: white;
-                padding: 16px 20px;
+                padding: 14px 12px;
                 text-align: left;
                 font-weight: 600;
                 font-size: 14px;
@@ -131,7 +133,7 @@
             }
 
             .mydatagrid td {
-                padding: 16px 20px;
+                padding: 14px 12px;
                 border-bottom: 1px solid #f3f4f6;
                 vertical-align: middle;
                 color: #4b5563;
@@ -316,9 +318,9 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             .page-container {
-                padding: 30px 20px;
+                padding: 30px;
             }
 
                 .page-container h2 {
